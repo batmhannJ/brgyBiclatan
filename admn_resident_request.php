@@ -1,5 +1,5 @@
     <?php
-        ini_set('display_errors',0);
+        ini_set('display_errors',1);
         error_reporting(E_ALL ^ E_WARNING);
         include('classes/staff.class.php');
         include('classes/resident.class.php');
@@ -51,16 +51,11 @@
             <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
         </head>
 
-
-
-        
-
         <body id="page-top">
 
             <!-- Page Wrapper -->
             <?php
                 include('dashboard_sidebar_start.php');
-
                 ?>
                 <!-- End of Sidebar -->
         <style>
@@ -250,20 +245,25 @@
                 </div>
             </div>
             <br>
-             
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
-<!-- responsive tags for screen compatibility -->
-<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
-<!-- custom css --> 
-<link href="customcss/regiformstyle.css" rel="stylesheet" type="text/css">
-<!-- bootstrap css --> 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
-<!-- fontawesome icons -->
-<script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
-<script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<?php 
-    include('dashboard_sidebar_end.php');
-?>
-</body>
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modalmanager.min.js" integrity="sha512-/HL24m2nmyI2+ccX+dSHphAHqLw60Oj5sK8jf59VWtFWZi9vx7jzoxbZmcBeeTeCUc7z1mTs3LfyXGuBU32t+w==" crossorigin="anonymous"></script>
+            <!-- responsive tags for screen compatibility -->
+            <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+            <!-- bootstrap css --> 
+            <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"> 
+            <!-- fontawesome icons -->
+            <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
+            <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
+
+        <?php 
+            include('dashboard_sidebar_end.php');
+        ?>

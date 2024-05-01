@@ -46,7 +46,7 @@ ini_set('display_errors', 1);
             <div class="card"> 
                 <div class="card-header bg-primary text-white"> Update List of Services </div>
                 <div class="card-body"> 
-                <form method="post" enctype="multipart/form-data" onsubmit="return handleFormSubmit()">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
                                 <label class="form-group">Title:</label>
@@ -174,12 +174,5 @@ ini_set('display_errors', 1);
 </body>
 
 
-<script>
-function handleFormSubmit() {
-    // Ipakita ang alert box na may mensaheng "Successfully updated!"
-    alert("Successfully updated!");
-    // Magbalik ng true upang ipagpatuloy ang form submission
-    return true;
-}
-</script>
+
 </html>

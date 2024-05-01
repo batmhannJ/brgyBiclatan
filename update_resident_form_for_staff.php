@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-header bg-primary text-white"> Update Barangay Resident Data</div>
                 <div class="card-body">
-                <form method="post" onsubmit="return handleUpdateFormSubmit()">
+                    <form method="post"> 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -170,15 +170,6 @@
     </div>
 
 </div>
-<script>
-function handleUpdateFormSubmit() {
-    // Ipakita ang alert box na may mensaheng "Successfully updated!"
-    alert("Successfully updated!");
-    // Magbalik ng true upang ipagpatuloy ang form submission
-    return true;
-}
-</script>
-
 
 <!-- /.container-fluid -->
 

@@ -427,13 +427,13 @@
 
         <br>
         <br>
-        
+        <br>
 
         <div class="container text-center">
             <div class="row">
                 <div class="col">
                     <br>
-                    <h1>Procedure</h1>
+                    <br><br><br><br><br><br><h1>Procedure</h1>
                     <hr style="background-color: black;">
                 </div>
             </div>
@@ -448,7 +448,7 @@
                     <br>
 
                     <h3>Step 1: Prepare</h3>
-                    <p style="text-align:justify-all;">Prepare all of the information that will be<br> needed
+                    <p style="text-align:justify-all;">First step is to prepare all of the information that will be<br> needed
                     in acquiring a certificate of residency.</p>
                     
                 </div>
@@ -459,7 +459,7 @@
                     <br>
 
                     <h3>Step 2: Apply</h3>
-                    <p style="text-align:justify-all;">Apply in our system and<br> fill-up the entire form
+                    <p style="text-align:justify-all;">Second Step is to apply in our system and<br> fill-up the entire form
                     given below.</p>
                 </div>
                 <div class="col">
@@ -469,8 +469,38 @@
                     <br>
 
                     <h3>Step 3: Release</h3>
-                    <p style="text-align:justify;">Releasing of your document. Please bring any valid ID.</p>
-                   
+                    <p style="text-align:justify;">Fourth step is for releasing of your document. Please bring the following:</p>
+                    <?php
+                            require('classes/conn.php');
+              // Assuming $id_brgy_info contains the ID of the barangay information
+                          $id_services = 4; // Example barangay information ID
+
+                          // Query the database to fetch the content of the <p> tag associated with the barangay information ID
+                          $sql = "SELECT requires FROM tbl_services WHERE id_services = :id";
+                          $stmt = $conn->prepare($sql);
+                          $stmt->bindParam(':id', $id_services);
+                          $stmt->execute();
+
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                          // Output the content of the <p> tag
+                        if ($row) {
+                            $requires = $row['requires'];
+
+                            // Split the content into separate items
+                            $items = explode('&', $requires);
+
+                            // Output each item as a separate list item
+                            echo '<ul>';
+                            foreach ($items as $item) {
+                                echo "<li style='text-align: left; margin-left:50px;'>$item</li>";
+                            }
+                            echo '</ul>';
+                        } else {
+                            echo "No content found for services ID $id_services";
+                        }
+
+                        ?>
                 </div>
             </div>
 
@@ -488,6 +518,9 @@
         
         <div id="down1"></div>
 
+        <br>
+        <br>
+        <br>
 
          <!-- Button trigger modal -->
 

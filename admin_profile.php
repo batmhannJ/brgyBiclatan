@@ -1,7 +1,7 @@
 <?php 
     error_reporting(E_ALL ^ E_WARNING);
     require('classes/resident.class.php');
-    ini_set('display_errors',0);
+    ini_set('display_errors',1);
     $userdetails = $residentbmis->get_userdata();
     $id_admin = $_GET['id_admin'];
     $admin = $residentbmis->get_single_admin($id_admin);

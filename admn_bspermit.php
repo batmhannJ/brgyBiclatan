@@ -238,9 +238,6 @@
 <br>
 <br>
 <br>
-
-<footer>
-    <?php 
-        include('dashboard_sidebar_end.php');
-    ?>
-</footer>
+<?php 
+    include('dashboard_sidebar_end.php');
+?>

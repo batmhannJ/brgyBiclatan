@@ -1,5 +1,5 @@
 <?php 
-    ini_set('display_errors',0);
+
 require_once('main.class.php');
 
 class ServicesClass extends BMISClass {

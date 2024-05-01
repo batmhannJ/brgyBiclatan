@@ -1,5 +1,5 @@
 <?php 
-     require_once('classes/resident.class.php');
+     require('classes/resident.class.php');
     $residentbmis->create_resident();
      //$data = $bms->get_userdata();
 
@@ -85,7 +85,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="mtop">Contact Number:</label>
-                                            <input type="tel" class="form-control" name="contact" maxlength="11" pattern="[0-9]{11}" placeholder="09123456789" required>
+                                            <input type="tel" class="form-control" name="contact" maxlength="11" pattern="[0-9]{11}" placeholder="0912-345-6789" required>
                                             <div class="valid-feedback">Valid.</div>
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>

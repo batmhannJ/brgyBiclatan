@@ -426,12 +426,17 @@
         <div id="down3"></div>
 
         <br>
-        
+        <br>
+        <br>
 
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <br><h1>Procedure</h1>
                     <hr style="background-color: black;">
                 </div>
@@ -447,7 +452,7 @@
                     <br>
 
                     <h3>Step 1: Fill-Up</h3>
-                    <p style="text-align:justify;">Fill-Up the entire form in our system.</p>
+                    <p style="text-align:justify;">First step is to Fill-Up the entire form in our system.</p>
                     
                 </div>
 
@@ -458,7 +463,7 @@
                     <br>
 
                     <h3>Step 2: Assessment</h3>
-                    <p style="text-align:justify;">Verify all of the information you've been given
+                    <p style="text-align:justify;">Second step is to verify all of the information you've been given
                     in our system that we can use to make the information of your document
                     accurately.</p>
                 </div>
@@ -470,8 +475,32 @@
                     <br>
 
                     <h3>Step 3: Release</h3>
-                    <p style="text-align:justify;">Releasing of your document. Please bring any valid ID.</p>
-                    
+                    <p style="text-align:justify;">Fourth step is for releasing of your document. Please bring the following:</p>
+                    <?php
+                            require('classes/conn.php');
+              // Assuming $id_brgy_info contains the ID of the barangay information
+                          $id_services = 6; // Example barangay information ID
+
+                          // Query the database to fetch the content of the <p> tag associated with the barangay information ID
+                          $sql = "SELECT requires FROM tbl_services WHERE id_services = :id";
+                          $stmt = $conn->prepare($sql);
+                          $stmt->bindParam(':id', $id_services);
+                          $stmt->execute();
+
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                          // Output the content of the <p> tag
+                          if ($row) {
+                              $requires = $row['requires'];
+
+                              echo "<li style='text-align: left;'>";
+                              echo "$requires<br />";
+                              echo "</li>";
+                          } else {
+                              echo "No content found for barangay information ID $id_brgy_info";
+                          }
+
+                        ?>
                 </div>
             </div>
 
@@ -488,7 +517,8 @@
         <div id="down1"></div>
 
         <br>
-        
+        <br>
+        <br>
 
         <!-- Button trigger modal -->
 

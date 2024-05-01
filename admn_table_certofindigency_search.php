@@ -62,16 +62,15 @@
 <table class="table table-hover text-center table-bordered table-responsive">
     <thead class="alert-info">
         <tr>
-        <th style="width: 10%;"> Resident ID </th>
-        <th style="width: 10%;"> Surname </th>
-        <th style="width: 10%;"> First Name </th>
-        <th style="width: 10%;"> Middle Name </th>
-        <th style="width: 10%;"> Nationality </th>
-            <th style="width: 10%;"> Address </th>
-            <th style="width: 10%;"> Purpose </th>
-            <th style="width: 10%;"> Date </th>
-            <th style="width: 20%;"> Actions</th>
-
+            <th> Actions</th>
+            <th> Resident ID </th>
+            <th> Surname </th>
+            <th> First Name </th>
+            <th> Middle Name </th>
+            <th> Nationality </th>
+            <th> Address </th>
+            <th> Purpose </th>
+            <th> Date </th>
         </tr>
     </thead>
     
@@ -79,7 +78,13 @@
         <?php if(is_array($view)) {?>
             <?php foreach($view as $view) {?>
                 <tr>
-                
+                    <td>    
+                        <form action="" method="post">
+                            <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="indigency_form.php?id_indigency=<?= $view['id_indigency'];?>">Generate</a> 
+                            <input type="hidden" name="id_indigency" value="<?= $view['id_indigency'];?>">
+                            <button class="btn btn-danger" style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_certofindigency"> Delete </button>
+                        </form>
+                    </td>
                     <td> <?= $view['id_resident'];?> </td> 
                     <td> <?= $view['lname'];?> </td>
                     <td> <?= $view['fname'];?> </td>
@@ -88,13 +93,6 @@
                     <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?>, <?= $view['municipal'];?></td>
                     <td> <?= $view['purpose'];?> </td>
                     <td> <?= $view['date'];?> </td>
-                    <td>    
-                        <form action="" method="post">
-                            <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="indigency_form.php?id_indigency=<?= $view['id_indigency'];?>">Generate</a> 
-                            <input type="hidden" name="id_indigency" value="<?= $view['id_indigency'];?>">
-                            <button class="btn btn-danger" style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_certofindigency"> Delete </button>
-                        </form>
-                    </td>
                 </tr>
             
             <?php

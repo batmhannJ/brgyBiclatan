@@ -121,7 +121,7 @@ date_default_timezone_set('Asia/Manila');
                         </div>
                 <div class="col-xs-8 col-md-4"> 
                     <b style="text-align: center;">Rest. Cert. No. _______</b><br>
-                    <b><span style=" text-align: center;">Issued at </b><u>BRGY.BICLATAN</u></span><br>
+                    <b><span style=" text-align: center;">Issued at </b><u>BRGY.BICLATAN,GENERAL TRIAS, CAVITE</u></span><br>
                     <b><span style=" text-align: center;">Issued on </b>___________</span><br><br><br>
                     <center><p style="font-size: 12px; opacity: 0.6; margin-left: 18rem; font-weight: bold; font-family: 'Baskerville Old Face';">Not Valid Without Dry Seal<br></p></center>
                 </div>
@@ -129,36 +129,7 @@ date_default_timezone_set('Asia/Manila');
             </div>
         </div>
 
-        <style>
-    .btn {
-        /* Button base styles */
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        width: 300px;
-        height: 170px;
-        background-image: url('prints.png');
-    }
-
-    .btn-primary {
-        /* Primary button styles */
-        background-color: #007bff;
-        color: #fff;
-    }
-
-    /* Additional styles for the print button */
-    #printpagebutton {
-        /* Your custom styles here */
-        /* For example: */
-        margin-top: 30%;
-        margin-left: 200px;
-    }
-</style>
-
-<button class="btn btn-primary noprint" id="printpagebutton" onclick="PrintElem('#clearance')">Print</button>
+    <button class="btn btn-primary noprint" id="printpagebutton" onclick="PrintElem('#clearance')">Print</button>
     </body>
     <?php
     

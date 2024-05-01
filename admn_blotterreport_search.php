@@ -76,6 +76,7 @@
 <table class="table table-hover text-center table-bordered table-responsive">
 		<thead class="alert-info">
 			<tr>
+                <th> Actions</th>
                 <th> Resident ID </th>
                 <th> Surname </th>
                 <th> First Name </th>
@@ -84,15 +85,20 @@
                 <th> Contact # </th>
                 <th> Narrative Report </th>
                 <th> Date & Time Applied</th> 
-				<th> Actions</th>
-
             </tr>
 		</thead>
 		<tbody>
 		<?php if(is_array($view)) {?>
                     <?php foreach($view as $view) {?>
 			<tr>
-         
+            <td>    
+                        <form action="" method="post">
+                        <a class="btn btn-success" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
+                            <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
+                            <button class="btn btn-danger" style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_blotter"> Delete </button>
+                        </form>
+                        </td>
+
                         <td> <?= $view['id_blotter'];?> </td> 
                         <td> <?= $view['lname'];?> </td>
                         <td> <?= $view['fname'];?> </td>
@@ -117,14 +123,6 @@
 						</td>
 
                         <td> <?= $view['timeapplied'];?> </td>
-						<td>    
-                        <form action="" method="post">
-                        <a class="btn btn-success" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
-                            <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
-                            <button class="btn btn-danger" style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_blotter"> Delete </button>
-                        </form>
-                        </td>
-
 			</tr>
 			
 			<?php

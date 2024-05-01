@@ -23,10 +23,9 @@
     }
         
     .input-icons {
-        width: 80%;
+        width: 30%;
         margin-bottom: 10px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 34%;
     }
         
     .icon {
@@ -68,7 +67,7 @@
     </div>
 
     <br>
-    <button class="btn btn-success" style="width: 95px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add</button>
+    <button class="btn btn-success" style="width: 95px; height: 40px; font-size: 14px; border-radius:5px; margin-bottom: 5px;" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus icon" style="padding-left: 0; padding-top: 0; padding-bottom: 0;"></i>Add</button>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -242,7 +241,7 @@
     </div>
     
 </div>
-<br><br><br>
+
 <?php 
     include('dashboard_sidebar_end.php');
 ?>

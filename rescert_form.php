@@ -99,7 +99,7 @@ $resident = $residentbmis->get_single_certofres_walkin($id_rescert);
 
                                 <br><br><br><br>
                                 <image src="icons/signature.png" style="width:100px; margin-left:65px; position: absolute;" /><br>
-                                <label style="font-size:18px;margin-left:1em; margin-top: 10px;"><u>HON. IRENEO C. HATID</u></label><br>
+                                <label style="font-size:18px;margin-left:1em; margin-top: 10px;"><u>HON. IRENEO C. HATID</u></label>
                                 <label style="font-size:18px; margin-left:2em;">Punong Barangay</label>
                             </div>
                             <div style="flex: 1;">
@@ -124,7 +124,7 @@ $resident = $residentbmis->get_single_certofres_walkin($id_rescert);
 
                 <div class="col-xs-8 col-md-4" style="margin-top: 2em;"><br><br><br><br><br><br><br><br>
                     <b style="text-align: center;">Rest. Cert. No. _______</b><br>
-                    <b><span style=" text-align: center;">Issued at </b><u>BRGY.BICLATAN</u></span><br>
+                    <b><span style=" text-align: center;">Issued at </b><u>BRGY.BICLATAN,GENERAL TRIAS, CAVITE</u></span><br>
                     <b><span style=" text-align: center;">Issued on </b>___________</span><br><br><br>
                     <center>
                         <p style="font-size: 15px; opacity: 0.6; margin-left: 18rem; font-weight: bold; font-family: 'Baskerville Old Face';">Not Valid Without Dry Seal<br></p>

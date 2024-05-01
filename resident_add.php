@@ -289,7 +289,18 @@
                                             <div class="invalid-feedback">Please fill out this field.</div>
                                         </div>
                                     </div>                                    
-                                   
+                                    <!--<div class="col rb"> 
+                                        <div class="form-group">
+                                            <label>Are you head of the family? </label>
+                                            <select class="form-control" name="family_role" id="famhead" required>
+                                                <option value="">...</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">Please fill out this field.</div>
+                                        </div>
+                                    </div>-->
                                     <div class="col rb"> 
                                         <div class="form-group">
                                             <label>PWD? </label>

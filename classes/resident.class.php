@@ -33,7 +33,6 @@ public function create_resident() {
         $malnourished = $_POST['malnourished'];
         $four_ps = $_POST['four_ps'];
         $role = $_POST['role'];
-        $request_status = 'pending';
 
 
         if ($_SERVER['PHP_SELF'] === '/BrgyBiclatan/resident_registration.php'){
@@ -50,7 +49,7 @@ public function create_resident() {
                 $stmt->execute([$lname, $fname, $mi, $contact, $email, $password, $houseno, $street, $brgy, $municipal, $bdate, $bplace, $nationality, $status, $age, $sex, $voter, $pwd, $indigent, $single_parent, $malnourished, $four_ps, $role, $request_status]);
 
                 // Provide feedback to the user
-                $message = "Thank you for signing up! Please wait for the admin to verify your account!";
+                $message = "Thanks for signing up. Your account has been created!";
                 echo "<script type='text/javascript'>alert('$message'); window.location.href = 'index_login.php';</script>";
                 
                 // Redirect the user
@@ -63,6 +62,7 @@ public function create_resident() {
         }
 
             else{
+                $request_status = 'approved';
 
                 // Open the database connection
                 $connection = $this->openConn();
@@ -88,84 +88,6 @@ public function create_resident() {
         // Close the database connection
         $connection = null;
     }
-}
-public function view_residents(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND sex='male'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_minor(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE age < 18");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_senior(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * FROM tbl_resident WHERE age > 60");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_pwd(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND pwd = 'yes'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_single(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND single_parent = 'yes'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_4ps(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND four_ps = 'yes'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_indigent(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND indigent = 'yes'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_malnuorished(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND malnourished = 'yes'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-
-public function view_residente(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'pending'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_female(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE request_status = 'approved' AND sex='Female'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
-}
-public function view_residented(){
-    $connection = $this->openConn();
-    $stmt = $connection->prepare("SELECT * from tbl_resident WHERE role = 'resident'");
-    $stmt->execute();
-    $view = $stmt->fetchAll();
-    return $view;
 }
 
 
@@ -286,7 +208,7 @@ public function view_residented(){
 
     public function count_resident() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status = 'approved' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
         return $rescount;
@@ -314,7 +236,7 @@ public function view_residented(){
     public function count_male_resident() {
         $connection = $this->openConn();
 
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where request_status= 'approved' and  sex = 'male' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'male' ");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -324,7 +246,7 @@ public function view_residented(){
     public function count_female_resident() {
         $connection = $this->openConn();
 
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where request_status= 'approved' and sex = 'female'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'female'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -427,7 +349,7 @@ public function profile_update_admin() {
 
     public function count_resident_senior() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) FROM tbl_resident WHERE request_status='approved' and `age` >= 60");
+        $stmt = $connection->prepare("SELECT COUNT(*) FROM tbl_resident WHERE `age` >= 60");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -560,7 +482,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_voters() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where request_status = 'approved' and `voter` = 'Yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'Yes' ");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -703,7 +625,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_minor() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status='approved' and age <= 17 ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE age <= 17 ");
         $stmt->execute();
         $minorcount = $stmt->fetchColumn();
         return $minorcount;
@@ -711,7 +633,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_pwd() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status= 'approved' and pwd = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE pwd = 'yes' ");
         $stmt->execute();
         $pwdcount = $stmt->fetchColumn();
         return $pwdcount;
@@ -719,7 +641,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_single_parent() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status= 'approved' and single_parent = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE single_parent = 'yes' ");
         $stmt->execute();
         $spcount = $stmt->fetchColumn();
         return $spcount;
@@ -727,7 +649,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_fourps() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status= 'approved' and four_ps = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE four_ps = 'yes' ");
         $stmt->execute();
         $fourpscount = $stmt->fetchColumn();
         return $fourpscount;
@@ -735,7 +657,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_indigent() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status='approved' and indigent = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE indigent = 'yes' ");
         $stmt->execute();
         $indigentcount = $stmt->fetchColumn();
         return $indigentcount;
@@ -743,7 +665,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_malnourished() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status='approved' and malnourished = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE malnourished = 'yes' ");
         $stmt->execute();
         $malcount = $stmt->fetchColumn();
         return $malcount;
@@ -833,19 +755,6 @@ if($hashed_old_password !== $result['password']) {
             "color" => $color
         );
     }
-// Inside resident.class.php
-
-public function view_male_resident() {
-    $sql = "SELECT * FROM tbl_resident WHERE sex = 'Male'";
-    $result = $this->db->query($sql);
-    $rows = array();
-    if ($result && $result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $rows[] = $row;
-        }
-    }
-    return $rows;
-}
 
 
  public function view_logs(){

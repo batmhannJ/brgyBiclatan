@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -10,8 +11,23 @@
 
     <title>Barangay Biclatan Information System</title>
 
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
 </head>
+<style>
 
+.clicked {
+    color: white;
+    background-color: #023EBA !important; /* Change to desired background color */
+}
+
+
+    </style>
 
 <body id="page-top">
 
@@ -26,11 +42,6 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
-                <img src="logojpg.jpg" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
-    width: 40px;
-    margin-right: 10px; /* space between logo and system name */
-    border-radius: 50%; ">
-
                 <div class="sidebar-brand-text">Administrator Dashboard </div>
             </a>
 
@@ -89,7 +100,11 @@
             </li>
 
             <!-- Announcement Management -->
-        
+            <li class="nav-item">
+                <a class="nav-link" href="list_of_services.php">
+                    <i class="fas fa-list"></i>
+                    <span> List of Services</span></a>
+            </li>
 
             <!-- Certificate of Residency -->
             <li class="nav-item">
@@ -153,7 +168,11 @@
             </li>-->
 
             <!-- Certificate of Residency -->
-            
+            <li class="nav-item">
+                <a class="nav-link" href="chairman_modal.php?id_system=1">
+                    <i class="fas fa-user"></i>
+                    <span> System Info</span></a>
+            </li>
 
         </ul>
         <!-- End of Sidebar -->
@@ -165,199 +184,56 @@
             <div id="content">
 
                 <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
-                <style>
-/* CSS for navbar */
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-/* Overall style for navbar */
-.navbar {
-    padding: 10px 20px;
-    border-bottom: 1px solid #e0e0e0; /* light gray border at the bottom */
-    background-color: #f8f9fa; /* light background color */
-}
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
 
-/* Style for the logo and system name */
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem; /* slightly larger font size for system name */
-    font-weight: bold; /* bold text for system name */
-    color: #343a40; /* dark gray color for text */
-}
-
-/* Style for the logo image */
-.navbar-brand img {
-    height: 40px;
-    width: 40px;
-    margin-right: 10px; /* space between logo and system name */
-    border-radius: 50%; /* make the logo image round */
-}
-
-/* Style for search input */
-.navbar-search .input-group {
-    margin-top: 10px; /* top margin */
-}
-
-.navbar-search .form-control {
-    border-radius: 20px 0 0 20px; /* rounded edges on left side */
-    border: 1px solid #ced4da;
-    padding: 5px 10px;
-}
-
-/* Style for search button */
-.navbar-search .input-group-append .btn {
-    border-radius: 0 20px 20px 0; /* rounded edges on right side */
-    background-color: #007bff; /* blue background */
-    color: white;
-}
-
-/* Style for user dropdown */
-.navbar-nav .nav-item .dropdown-toggle {
-    color: #343a40; /* dark gray color */
-    border: 0;
-    outline: none;
-    background-color: transparent;
-    font-weight: bold; /* bold text for user info */
-}
-
-.navbar-nav .dropdown-menu {
-    border-radius: 10px; /* rounded edges for dropdown menu */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); /* slight shadow effect */
-    padding: 10px;
-}
-
-.navbar-nav .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    color: #343a40; /* dark gray color */
-    font-size: 1rem;
-}
-
-.navbar-nav .dropdown-item i {
-    margin-right: 10px; /* space between icon and text */
-    color: #007bff; /* blue color for icons */
-}
-
-/* Hover effect for dropdown items */
-.navbar-nav .dropdown-item:hover {
-    background-color: #f8f9fa; /* light gray background on hover */
-}
-
-/* Media query for responsiveness */
-@media (max-width: 767px) {
-    .navbar-brand {
-        font-size: 1.2rem; /* Adjust font size for smaller screens */
-    }
-    .btn {
-        margin-left: -10px;
-    }
-}
-.clicked {
-    color: white;
-    background-color: #023EBA !important; /* Change to desired background color */
-}
-#accordionSidebar.collapsed .nav-link-text {
-    display: none;
-}
-</style>
-
-
-                <nav class="navbar navbar-expand-lg navbar-light bg-primary topbar mb-4 static-top shadow">
-    <!-- Logo at pangalan ng system sa kaliwang bahagi -->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 ml-3" id="sidebarToggle" href="#">
-    <i class="fas fa-bars text-white"></i>
-</button>
-    <div class="navbar-brand d-flex align-items-center">
-      
-    </div>
-   
-   
-    <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-      
-            <!-- Dropdown - Messages -->
-            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small"
-                            placeholder="Search for..." aria-label="Search"
-                            aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                        <!-- Nav Item - User Information -->
+                            <div class="dropdown ml-auto">
+                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+                    <span class="caret" style="margin-left: 2px;"></span>
+                </button>
+                <ul class="dropdown-menu" style="width: 175px;" >
+                    <a class="btn" href="admin_profile.php?id_admin=<?= $userdetails['id_admin'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
+                    <!--<a class="btn" href="admin_changepass.php?id_admin=<?= $userdetails['id_admin'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>-->
+                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
+                </ul>
             </div>
-        </li>
+                    </ul>
+                </nav>
 
-        <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?= $userdetails['surname'];?> <?= $userdetails['firstname'];?>
-                <span class="caret" style="margin-left: 2px;"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="admin_profile.php?id_admin=<?= $userdetails['id_admin'];?>">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Personal Profile
-                </a>
-                <a class="dropdown-item" href="logout.php">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-            </div>
-        </li>
-    </ul>
-</nav>
-
-
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
 
 <script>
-    // Get the toggle button
-    var toggleButton = document.getElementById('sidebarToggle');
-
-    // Add event listener for click event
-    toggleButton.addEventListener('click', function() {
-        // Get the sidebar element
-        var sidebar = document.getElementById('accordionSidebar');
-        
-        // Toggle the 'collapsed' class to hide or show the sidebar
-        sidebar.classList.toggle('collapsed');
-        
-        // Save the state to local storage
-        localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
-    });
-
-    // Function to check the local storage and collapse/expand sidebar accordingly
-    function checkSidebarState() {
-        var sidebar = document.getElementById('accordionSidebar');
-        var isCollapsed = localStorage.getItem('sidebarCollapsed');
-        if (isCollapsed === 'true') {
-            sidebar.classList.add('collapsed');
-        } else {
-            sidebar.classList.remove('collapsed');
-        }
-    }
-
-    // Call the function when the page loads
-    window.onload = checkSidebarState;
-
     // Get the current URL
     var url = window.location.href;
     // Get the sidebar items
@@ -374,5 +250,8 @@
 </script>
 
 
-</body>
-</html>
+
+
+
+
+

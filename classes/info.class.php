@@ -161,7 +161,7 @@ public function update_brgy_info() {
             $message2 = "New Activity Added";
 
             if ($stmt->rowCount() > 0) {
-                $message2 = "New Activity Added";
+                $message2 = "New Service Added";
             } else {
                 $message2 = "Failed to add service";
             }
@@ -246,7 +246,7 @@ public function update_brgy_info() {
     public function delete_activity() {
         $id_activity = $_POST['id_activity'];
         if(isset($_POST['delete_activity'])) {
-            
+            var_dump($id_activity); // Debug statement
             
             $connection = $this->openConn();
             $stmt = $connection->prepare("DELETE FROM tbl_activities WHERE id_activity = ?");

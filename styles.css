@@ -28,10 +28,10 @@
   color: var(--text-dark);
 }
 
-.section__header {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-dark);
+.section__description {
+  margin-top: 1rem;
+  max-width: 600px;
+  color: var(--text-light);
 }
 
 .btn {
@@ -639,3 +639,4 @@ nav {
   .footer__col:last-child {
     grid-area: unset;
   }
+}

@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header bg-primary text-white"> Update Peace and Order Data</div>
                     <div class="card-body">
-                    <form method="post" enctype="multipart/form-data" onsubmit="return handleFormSubmit()">
+                        <form method="post" enctype="multipart/form-data"> 
                             <div class="row"> 
                                 <div class="col">
                                     <div class="form-group">
@@ -160,15 +160,6 @@
         }
     }
 </script>
-<script>
-function handleFormSubmit() {
-    // Ipakita ang alert box na may mensaheng "Successfully updated!"
-    alert("Successfully updated!");
-    // Magbalik ng true upang ipagpatuloy ang form submission
-    return true;
-}
-</script>
-
 <?php 
     include('dashboard_sidebar_end.php');
 ?>

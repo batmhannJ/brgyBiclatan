@@ -1,18 +1,19 @@
 <?php
-    error_reporting(E_ALL ^ E_WARNING);
-    ini_set('display_errors',0);
-    require('classes/resident.class.php');
-    $userdetails = $bmis->get_userdata();
-    $bmis->validate_admin();
-    $bmis->create_announcement();
-    $bmis->delete_announcement();
-    $view = $bmis->view_announcement();
-    $announcementcount = $bmis->count_announcement();
+   error_reporting(E_ALL ^ E_WARNING);
+   ini_set('display_errors',0);
+   require('classes/resident.class.php');
+   $userdetails = $bmis->get_userdata();
+   $bmis->validate_admin();
+   $bmis->create_announcement();
+   $bmis->delete_announcement();
+   $view = $bmis->view_announcement();
+   $announcementcount = $bmis->count_announcement();
 
-    $dt = new DateTime("now", new DateTimeZone('Asia/Manila'));
-    $tm = new DateTime("now", new DateTimeZone('Asia/Manila'));
-    $cdate = $dt->format('Y/m/d');   
-    $ctime = $tm->format('H');
+   $dt = new DateTime("now", new DateTimeZone('Asia/Manila'));
+   $tm = new DateTime("now", new DateTimeZone('Asia/Manila'));
+   $cdate = $dt->format('Y/m/d');   
+   $ctime = $tm->format('H');
+
 ?>
 
 <?php 
@@ -111,25 +112,23 @@
                 <div class="card-header bg-success text-white" style="font-size: 20px;"> Current Announcement Output </div>
                 <div class="card-body">
 
-                <div class="alert alert-info alert-dismissible fade show d-flex justify-content-center" 
-    style="border-radius:10px; 
-            color: white; 
-            background-color:#3498DB;" 
-    role="alert">
-    <div style="max-width: 75%;">
-        <strong><h4 class="text-center">ANNOUNCEMENT!</h4><hr></strong>
-        <p class="text-center"><?= $view['event'];?></p>
-    </div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
+                    <div class="alert alert-info alert-dismissible fade show" 
+                        style="border-radius:10px;
+                        margin-left:13%; 
+                        width:75%;
+                        height:180px;
+                        color: white;
+                        background-color:#3498DB;" role="alert">
+                        <strong><h4>ANNOUNCEMENT!<h4><hr></strong> <br> <p> <?= $view['event'];?> </p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <br><br>  <br><br>  <br><br>
+
     <!-- /.container-fluid -->
 
 </div>
@@ -150,3 +149,5 @@
 <?php 
     include('dashboard_sidebar_end.php');
 ?>
+
+

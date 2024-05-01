@@ -109,7 +109,7 @@ $age = $residentbmis->get_single_resident($id_resident);
                     </div>
                 <div class="col-xs-8 col-md-4" style="margin-top: 2em;"><br><br><br><br><br><br><br><br>
                     <b style="text-align: center;">Rest. Cert. No. _______</b><br>
-                    <b><span style=" text-align: center;">Issued at </b><u>BRGY.BICLATAN</u></span><br>
+                    <b><span style=" text-align: center;">Issued at </b><u>BRGY.YUSON, GUIMBA, N.E</u></span><br>
                     <b><span style=" text-align: center;">Issued on </b>___________</span></br><br><br><br>
                     <center><p style="font-size: 15px; opacity: 0.6; margin-left: 18rem; font-weight: bold; font-family: 'Baskerville Old Face';">Not Valid Without Dry Seal<br></p></center>
                 </div>

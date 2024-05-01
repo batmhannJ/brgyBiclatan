@@ -180,14 +180,6 @@ ini_set('display_errors', 0);
 
 </body>
 
-<script>
-function handleUpdateFormSubmit() {
-    // Ipakita ang alert box na may mensaheng "Successfully updated!"
-    alert("Successfully updated!");
-    // Magbalik ng true upang ipagpatuloy ang form submission
-    return true;
-}
-</script>
 
 
 </html>

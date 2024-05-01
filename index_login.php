@@ -125,49 +125,34 @@
         .create-button:hover {
             background-color: #218838;
         }
-        .g-recaptcha {
-            width: 100%; /* Make it responsive */
-            max-width: 310px; /* Limit the max-width to 310px */
-            margin: 0 auto; /* Center it */
-        }
-        @media (max-width: 576px) {
-            .form-container {
-                right: 5%;
-            }
-            .eye-icon {
-                left: 250px;
-            }
-        }
+
+        
     </style>
     <style>
-        .input-container {
-            position: relative;
-        }
+    .input-container {
+        position: relative;
+    }
 
-        .eye-icon {
-            position: absolute;
-            left: 400px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-        @media (max-width: 576px) {
-            .eye-icon {
-                left: 250px;
-            }
-        }
-    </style>
+    .eye-icon {
+        position: absolute;
+        left: 400px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
 <section class="main-section">
     <div class="container">
         <div class="row">
-          
+            <div class="col-md-6 logo-container">
+                <img src="assets/goloo.png" alt="Logo" class="logo">
+            </div>
             <div class="col-md-6 form-container">
                 <div class="card main-card mt-3">
                     <div class="card-body">
-                        <form method="post" class="input-container" onsubmit="validateCaptcha(event)">
+                        <form method="post" class="input-container">
                             <div class="mb-3">
                             <center><p class="title-text">Barangay Biclatan Information System</p></center>
                             <label for="email" class="form-label"><b>Email:</b></label>
@@ -186,7 +171,7 @@
                             </div>
                         </div>
                             <div class="form-group">
-                                <div class="g-recaptcha" data-sitekey="6LdM0DgUAAAAAHtPjQfbqTX6viYFbOvkcFs_twDp" style=";transform:scale(0.8);transform-origin:0;-webkit-transform:scale(0.8);transform:scale(0.8);" required></div>
+                                <div class="g-recaptcha" data-sitekey="6LdM0DgUAAAAAHtPjQfbqTX6viYFbOvkcFs_twDp" style="transform:scale(0.8);transform-origin:0;-webkit-transform:scale(0.8);transform:scale(0.8);"></div>
                             </div>
 
 
@@ -206,8 +191,6 @@
             </div>
         </div>
     </div>
-
-    <br><br><br>
 </section>
 <script>
     function myFunction() {
@@ -240,30 +223,6 @@
         }
     }
 </script>
-<script>
-// Function upang suriin ang CAPTCHA at baguhin ang kulay kung hindi pa ito na-click
-function validateCaptcha(event) {
-    // Kunin ang reCAPTCHA response token
-    var recaptchaResponse = grecaptcha.getResponse();
 
-    // Hanapin ang CAPTCHA container element
-    var captchaContainer = document.querySelector('.g-recaptcha');
-
-    // Tingnan kung valid ang reCAPTCHA response
-    if (recaptchaResponse.length === 0) {
-        // Baguhin ang border color ng CAPTCHA container sa pula
-        captchaContainer.style.border = '2px solid red';
-
-        // Itigil ang form submission
-        event.preventDefault();
-    } else {
-        // Kung valid ang response, alisin ang border color
-        captchaContainer.style.border = '';
-    }
-}
-
-// Idagdag ang validateCaptcha function bilang onsubmit event handler ng form
-document.querySelector('form').addEventListener('submit', validateCaptcha);
-</script>
 </body>
 </html>

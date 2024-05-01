@@ -9,6 +9,7 @@
     <thead class="alert-info">
         
         <tr>
+            <th> Actions</th>
             <th> Resident ID </th>
             <th> Surname </th>
             <th> First Name </th>
@@ -18,8 +19,6 @@
             <th> Address </th>
             <th> Date </th>
             <th> Purpose </th>
-            <th> Actions</th>
-
         </tr>
     </thead>
 
@@ -33,7 +32,13 @@
             while($view = $stmnt->fetch()){
         ?>
             <tr>
-               
+                <td>    
+                    <form action="" method="post">
+                        <a class="btn btn-success" target="blank" style="width: 80px; font-size: 14px; border-radius:5px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
+                        <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
+                        <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 14px; border-radius:5px;" name="delete_certofres"> Delete </button>
+                    </form>
+                </td>
                 <td> <?= $view['id_resident'];?> </td> 
                 <td> <?= $view['lname'];?> </td>
                 <td> <?= $view['fname'];?> </td>
@@ -43,13 +48,7 @@
                 <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?>, <?= $view['municipal'];?></td>
                 <td> <?= $view['date'];?> </td>
                 <td> <?= $view['purpose'];?> </td>
-                <td>    
-                    <form action="" method="post">
-                        <a class="btn btn-success" target="blank" style="width: 80px; font-size: 14px; border-radius:5px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
-                        <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
-                        <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 14px; border-radius:5px;" name="delete_certofres"> Delete </button>
-                    </form>
-                </td>
+
             </tr>
         <?php
         }
@@ -65,7 +64,7 @@
 <table class="table table-hover text-center table-bordered table-responsive">
 		<thead class="alert-info">
 			<tr>
-                
+                <th> Actions</th>
                 <th> Resident ID </th>
                 <th> Surname </th>
                 <th> First Name </th>
@@ -75,7 +74,6 @@
                 <th> Address </th>
                 <th> Date </th>
                 <th> Purpose </th>
-                <th style="width: 18%;"> Actions</th>
 			</tr>
 		</thead>
 
@@ -83,7 +81,13 @@
 		    <?php if(is_array($view)) {?>
                 <?php foreach($view as $view) {?>
                     <tr>
-                      
+                        <td>    
+                            <form action="" method="post">
+                                <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
+                                <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
+                                <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 15px; border-radius:5px;" name="delete_certofres"> Delete </button>
+                            </form>
+                        </td>
                         <td> <?= $view['id_resident'];?> </td> 
                         <td> <?= $view['lname'];?> </td>
                         <td> <?= $view['fname'];?> </td>
@@ -93,13 +97,6 @@
                         <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?>, <?= $view['municipal'];?></td>
                         <td> <?= $view['date'];?> </td>
                         <td> <?= $view['purpose'];?> </td>
-                        <td>    
-                            <form action="" method="post">
-                                <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
-                                <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
-                                <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 15px; border-radius:5px;" name="delete_certofres"> Delete </button>
-                            </form>
-                        </td>
                     </tr>
                 <?php
                     }

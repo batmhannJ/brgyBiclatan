@@ -369,76 +369,47 @@
         </a>
 
         <!-- Eto yung navbar -->
-<style>
 
-.text1 {
-    font-size: 2.5rem;
-}
+        <nav class="navbar navbar-dark bg-primary sticky-top">
+            <div class="logo">
+            <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
+          </div>
+            <a class="navbar-brand" href="resident_homepage.php" style="margin-left:10px"><b>Barangay Biclatan Information System</b></a>
+            <a href="resident_homepage.php" style="margin-left:200px; font-size: 18px; font-weight:bold;">HOME</a>
+            <a href="#down3" style="margin-left:30px; font-size: 18px; font-weight:bold;">PROCEDURE</a>
+            <a href="#down1" style="margin-left:30px; font-size: 18px; font-weight:bold;">REGISTRATION</a>
+           
+            <div class="dropdown ml-auto">
+                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+                    <span class="caret" style="margin-left: 2px;"></span>
+                </button>
+                <ul class="dropdown-menu" style="width: 175px;" >
+                    <a class="btn" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"> &nbsp; </i>Personal Profile  </a>
+                    <a class="btn" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock" >&nbsp;</i> Change Password  </a>
+                    <a class="btn" href="logout.php"> <i class="fas fa-sign-out-alt">&nbsp;</i> Logout  </a>
+                </ul>
+            </div>
+        </nav>
 
-.text2 {
-    font-size: 1.1rem;
-}
-
-.picture {
-    width: 100px;
-    height: auto;
-}
-
-</style>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="logo">
-        <a href="#"><img src="assets/goloo.png" alt="logo" height="60px" /></a>
-    </div>
-    <a class="navbar-brand" href="resident_homepage.php"><b>Barangay Biclatan Information System</b></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="resident_homepage.php" class="nav-link">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a href="#down3" class="nav-link">PROCEDURE</a>
-            </li>
-            <li class="nav-item">
-                <a href="#down1" class="nav-link">REGISTRATION</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="dropdown ml-auto">
-        <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
-            <span class="caret" style="margin-left: 2px;"></span>
-        </button>
-        <ul class="dropdown-menu" style="width: 175px;">
-            <li><a class="dropdown-item" href="resident_profile.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-user"></i> &nbsp; Personal Profile</a></li>
-            <li><a class="dropdown-item" href="resident_changepass.php?id_resident=<?= $userdetails['id_resident'];?>"> <i class="fas fa-lock"></i>&nbsp; Change Password</a></li>
-            <li><a class="dropdown-item" href="logout.php"> <i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
-        </ul>
-    </div>
-</nav>
-
-
-
-<div class="container-fluid container1"style="height:450px;"> 
+        <div class="container-fluid container1"> 
             <div class="row"> 
                 <div class="col"> 
                     <div class="header">
-                        <h1 class="text1">Business Permit (Mayor's Permit) </h1>
-                        <h5> Before you can start operating your business in the Philippines, you need to secure 
-                        <br> a Mayor’s Permit or Business Permit from the Local Government Unit (LGU) where your 
-                        <br> company office is located. </h5>
+                        <h1 class="text1">Certificate of Indigency</h1>
+                        <h5> A Certificate of Indigency or a Certificate of Low Income is a document 
+                        <br> that are sometimes required by the Philippine government or a private 
+                        <br> institution as proof of an individual's financial situation.</h5>
                     </div>
 
                     <br>
 
-                    <div class="d-flex justify-content-center">
-                <img class="picture" src="icons/Documents/docu1.png" alt="Document 1">&nbsp;
-                <img class="picture" src="icons/Documents/docu3.png" alt="Document 3">&nbsp;
-                <img class="picture" src="icons/Documents/docu2.png" alt="Document 2">&nbsp;
-            </div>
+                    <img class="picture" src="icons/Documents/docu1.png">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img class="picture" src="icons/Documents/docu3.png">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img class="picture" src="icons/Documents/docu2.png">
                 </div>
             </div>
         </div>
@@ -447,12 +418,12 @@
 
         <br>
         <br>
-        
+        <br>
 
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    
+                    <br><br><br><br>
                     <h1>Procedure</h1>
                     <hr style="background-color: black;">
                 </div>
@@ -469,7 +440,7 @@
                     <br>
 
                     <h3>Step 1: Prepare</h3>
-                    <p style="text-align:justify;">Prepare all of the information that will be needed
+                    <p style="text-align:justify;">First step is to prepare all of the information that will be needed
                     in acquiring a certificate of residency.</p>
                 </div>
 
@@ -480,20 +451,20 @@
                     <br>
 
                     <h3>Step 2: Fill-Up</h3>
-                    <p style="text-align:justify;">Fill-Up the entire form in our system.</p>
+                    <p style="text-align:justify;">Second step is to Fill-Up the entire form in our system.</p>
                 </div>
 
                 <div class="col">
                     <br>
                     <br>
-                    
+                    <br>
                     <i class="fas fa-user-check fa-4x"></i>
 
                     <br>
                     <br>
 
                     <h3>Step 3: Assessment</h3>
-                    <p style="text-align:justify;">Verify all of the information you've been given
+                    <p style="text-align:justify;">Third step is to verify all of the information you've been given
                     in our system that we can use to make the information of your document
                     accurately.</p>
                 </div>
@@ -505,8 +476,32 @@
                     <br>
 
                     <h3>Step 4: Release</h3>
-                    <p style="text-align:justify;">Releasing of your Certificate of Indigency. Please bring any valid ID. </p>
-                    
+                    <p style="text-align:justify;">Fourth step is for releasing of your Certificate of Indigency. Please bring the following: </p>
+                    <?php
+                            require('classes/conn.php');
+              // Assuming $id_brgy_info contains the ID of the barangay information
+                          $id_services = 5; // Example barangay information ID
+
+                          // Query the database to fetch the content of the <p> tag associated with the barangay information ID
+                          $sql = "SELECT requires FROM tbl_services WHERE id_services = :id";
+                          $stmt = $conn->prepare($sql);
+                          $stmt->bindParam(':id', $id_services);
+                          $stmt->execute();
+
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                          // Output the content of the <p> tag
+                          if ($row) {
+                              $requires = $row['requires'];
+
+                              echo "<li style='text-align: left;'>";
+                              echo "$requires <br />";
+                              echo "</li>";
+                          } else {
+                              echo "No content found for barangay information ID $id_brgy_info";
+                          }
+
+                        ?>
                 </div>
             </div>
 
@@ -523,6 +518,9 @@
 
         <div id="down1"></div>
 
+        <br>
+        <br>
+        <br>
 
         <!-- Button trigger modal -->
 

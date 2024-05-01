@@ -33,7 +33,7 @@
             <div class="card"> 
                 <div class="card-header bg-primary text-white"> Update Barangay Staff Data </div>
                 <div class="card-body"> 
-                <form method="post" onsubmit="return handleUpdateFormSubmit()">
+                    <form method="post">
                         <div class="row">
                             <div class="col">
                                 <label class="form-group"> Last Name:</label>
@@ -197,14 +197,6 @@
     <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
 
 </body>
-<script>
-function handleUpdateFormSubmit() {
-    // Ipakita ang alert box na may mensaheng "Successfully updated!"
-    alert("Successfully updated!");
-    // Magbalik ng true upang ipagpatuloy ang form submission
-    return true;
-}
-</script>
 
 
 

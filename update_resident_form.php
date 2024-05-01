@@ -9,7 +9,7 @@
 
 ?>
 
-<?php
+<?php 
     include('dashboard_sidebar_start.php');
 ?>
 
@@ -142,96 +142,25 @@
                         </div>
 
                         <div class="row">
-                                    
-                            <div class="col rb"> 
+                            <div class="col"> 
                                 <div class="form-group">
                                     <label>Are you a registered voter? </label>
-                                    <select class="form-control" name="voter" id="regvote" required>
-                                        <option value="" <?php if($view['voter'] == '') echo 'selected="selected"'; ?>>...</option>
-                                        <option value="Yes" <?php if($view['voter'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
-                                        <option value="No" <?php if($view['voter'] == 'No') echo 'selected="selected"'; ?>>No</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                    <input type="text" class="form-control" name="voter" id="regvote" value="<?= $view['voter']?>"required>
                                 </div>
                             </div>                                    
-                                   
-                            <div class="col rb"> 
+                            <div class="col"> 
                                 <div class="form-group">
-                                    <label>PWD? </label>
-                                    <select class="form-control" name="pwd" id="pwd" required>
-                                        <option value="" <?php if($view['pwd'] == '') echo 'selected="selected"'; ?>>...</option>
-                                        <option value="Yes" <?php if($view['pwd'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
-                                        <option value="No" <?php if($view['pwd'] == 'No') echo 'selected="selected"'; ?>>No</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                                    
-                            <div class="col rb"> 
-                                <div class="form-group">
-                                    <label>Indigent? </label>
-                                    <select class="form-control" name="indigent" id="indigent" required>
-                                        <option value="" <?php if($view['indigent'] == '') echo 'selected="selected"'; ?>>...</option>
-                                        <option value="Yes" <?php if($view['indigent'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
-                                        <option value="No" <?php if($view['indigent'] == 'No') echo 'selected="selected"'; ?>>No</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-                            </div>                                    
-                            <div class="col rb"> 
-                                <div class="form-group">
-                                    <label>Single Parent? </label>
-                                    <select class="form-control" name="single_parent" id="single_parent" required>
-                                        <option value="" <?php if($view['single_parent'] == '') echo 'selected="selected"'; ?>>...</option>
-                                        <option value="Yes" <?php if($view['single_parent'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
-                                        <option value="No" <?php if($view['single_parent'] == 'No') echo 'selected="selected"'; ?>>No</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                    <label>Are you head of the family? </label>
+                                    <input type="text" class="form-control" name="family_role" id="famhead" value="<?= $view['family_role']?>" required>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col rb"> 
-                                <div class="form-group">
-                                    <label>Malnourished? </label>
-                                    <select class="form-control" name="malnourished" id="malnourished" required>
-                                        <option value="" <?php if($view['malnourished'] == '') echo 'selected="selected"'; ?>>...</option>
-                                        <option value="Yes" <?php if($view['malnourished'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
-                                        <option value="No" <?php if($view['malnourished'] == 'No') echo 'selected="selected"'; ?>>No</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-                            </div>
-                            <div class="col rb"> 
-                                <div class="form-group">
-                                    <label>Member of 4Ps? </label>
-                                    <select class="form-control" name="four_ps" id="four_ps" required>
-                                        <option value="" <?php if($view['four_ps'] == '') echo 'selected="selected"'; ?>>...</option>
-                                        <option value="Yes" <?php if($view['four_ps'] == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
-                                        <option value="No" <?php if($view['four_ps'] == 'No') echo 'selected="selected"'; ?>>No</option>
-                                    </select>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <br>
-                        <hr>
+                    <br>
+                    <hr>
 
                         <input type="hidden" class="form-control" name="role" value="resident">
-                        <a href="admn_resident_crud.php" class="btn btn-danger" style="width: 120px; font-size: 18px; border-radius:30px; margin-left:35%;"> Back </a>
+                            <a href="admn_resident_crud.php" class="btn btn-danger" style="width: 120px; font-size: 18px; border-radius:30px; margin-left:35%;"> Back </a>
                         <button class="btn btn-primary" style="width: 120px; font-size: 18px; border-radius:30px;" type="submit" name="update_resident"> Update </button>
                     </form>
                 </div>
@@ -241,7 +170,7 @@
     </div>
 
 </div>
-<br>  <br>  <br>
+
 <!-- /.container-fluid -->
 
 <!-- End of Main Content -->

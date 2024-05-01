@@ -4,9 +4,6 @@
 	if(isset($_POST['search_bspermit'])){
 		$keyword = $_POST['keyword'];
 ?>
-<?php 
-    include('dashboard_sidebar_start.php');
-?>
 <table class="table table-hover text-center table-bordered table-responsive" >
     <thead class="alert-info">
         
@@ -63,16 +60,15 @@
 <table class="table table-hover text-center table-bordered table-responsive">
         <thead class="alert-info">
             <tr>
+            <th style="width: 20%;"> Actions</th>
             <th> Resident ID </th>
-            <th style="width: 10%;"> Surname </th>
-            <th style="width: 10%;"> First Name </th>
-            <th style="width: 10%;"> Middle Name </th>
-            <th style="width: 20%;"> Purpose </th>
-            <th style="width: 20%;"> Address </th>
+            <th> Surname </th>
+            <th> First Name </th>
+            <th> Middle Name </th>
+            <th> Purpose </th>
+            <th> Address </th>
             <th> Status </th>
             <th style="width: 8.5%;"> Age </th>
-            <th style="width: 20%;"> Actions</th>
-
         </tr>
         </thead>
 
@@ -80,6 +76,13 @@
            <?php if(is_array($view)) {?>
                <?php foreach($view as $view) {?>
                    <tr>
+                       <td>    
+                           <form action="" method="post">
+                               <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="brgyclearance_form.php?id_clearance=<?= $view['id_clearance'];?>">Generate</a> 
+                               <input type="hidden" name="id_clearance" value="<?= $view['id_clearance'];?>">
+                               <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 15px; border-radius:5px;" name="delete_clearance"> Delete </button>
+                            </form>
+                        </td>
                         <td> <?= $view['id_resident'];?> </td> 
                         <td> <?= $view['lname'];?> </td>
                         <td> <?= $view['fname'];?> </td>
@@ -88,13 +91,6 @@
                         <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?>, <?= $view['municipal'];?></td>
                         <td> <?= $view['status'];?> </td>
                         <td> <?= $view['age'];?> </td>
-                        <td>    
-                           <form action="" method="post">
-                               <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="brgyclearance_form.php?id_clearance=<?= $view['id_clearance'];?>">Generate</a> 
-                               <input type="hidden" name="id_clearance" value="<?= $view['id_clearance'];?>">
-                               <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 15px; border-radius:5px;" name="delete_clearance"> Delete </button>
-                            </form>
-                        </td>
                     </tr>
                 <?php
                     }

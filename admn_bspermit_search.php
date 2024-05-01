@@ -8,6 +8,7 @@
 
     <thead class="alert-info">
         <tr>
+            <th> Actions</th>
             <th> Resident ID </th>
             <th> Surname </th>
             <th> First Name </th>
@@ -16,8 +17,6 @@
             <th> Address </th>
             <th> Business Industry </th>
             <th> Area of Establishment </th>
-            <th style="width: 22%;"> Actions</th>
-
         </tr>
     </thead>
 
@@ -47,13 +46,6 @@
                 <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?>, <?= $view['municipal'];?> </td>
                 <td> <?= $view['bsindustry'];?> </td>
                 <td> <?= $view['aoe'];?> </td>
-                <td>    
-                    <form action="" method="post">
-                        <a class="btn btn-success" target="blank"  style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="businesspermit_form.php?id_bspermit=<?= $view['id_bspermit'];?>">Generate</a> 
-                        <input type="hidden" name="id_bspermit" value="<?= $view['id_bspermit'];?>">
-                        <button class="btn btn-danger"  style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_bspermit"> Delete </button>
-                    </form>
-                </td>
             </tr>
         <?php
         }
@@ -68,7 +60,7 @@
 
     <thead class="alert-info">
         <tr>
-         
+            <th> Actions</th>
             <th> Resident ID </th>
             <th> Surname </th>
             <th> First Name </th>
@@ -77,7 +69,6 @@
             <th> Address </th>
             <th> Business Industry </th>
             <th> Area of Establishment </th>
-            <th style="width: 22%;"> Actions</th>
         </tr>
     </thead>
 
@@ -85,7 +76,13 @@
         <?php if(is_array($view)) {?>
             <?php foreach($view as $view) {?>
                 <tr>
-                 
+                    <td>    
+                        <form action="" method="post">
+                            <a class="btn btn-success" target="blank"  style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="businesspermit_form.php?id_bspermit=<?= $view['id_bspermit'];?>">Generate</a> 
+                            <input type="hidden" name="id_bspermit" value="<?= $view['id_bspermit'];?>">
+                            <button class="btn btn-danger"  style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_bspermit"> Delete </button>
+                        </form>
+                    </td>
                     <td> <?= $view['id_resident'];?> </td> 
                     <td> <?= $view['lname'];?> </td>
                     <td> <?= $view['fname'];?> </td>
@@ -94,13 +91,6 @@
                     <td> <?= $view['houseno'];?>, <?= $view['street'];?>, <?= $view['brgy'];?>, <?= $view['municipal'];?> </td>
                     <td> <?= $view['bsindustry'];?> </td>
                     <td> <?= $view['aoe'];?> </td>
-                    <td>    
-                        <form action="" method="post">
-                            <a class="btn btn-success" target="blank"  style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="businesspermit_form.php?id_bspermit=<?= $view['id_bspermit'];?>">Generate</a> 
-                            <input type="hidden" name="id_bspermit" value="<?= $view['id_bspermit'];?>">
-                            <button class="btn btn-danger"  style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_bspermit"> Delete </button>
-                        </form>
-                    </td>
                 </tr>
             <?php
                 }

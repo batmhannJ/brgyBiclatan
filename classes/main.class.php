@@ -1,5 +1,4 @@
 <?php 
-    ini_set('display_errors',0);
 
 class BMISClass {
 
@@ -43,24 +42,55 @@ public function login() {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $connection = $this->openConn();
+        // Verify the reCAPTCHA response
+        if (isset($_POST['g-recaptcha-response'])) {
+            $captchaResponse = $_POST['g-recaptcha-response'];
 
-        // Hash the entered password for comparison with the stored hashed password
-        $hashed_password = md5($password);
+            // Your secret key provided by reCAPTCHA
+            $secretKey = '6LdM0DgUAAAAACjdiQrJYyFfPS8HbjJxzpfR99Oa';
 
-        // Check if the user is an administrator
-        $stmt_admin = $connection->prepare("SELECT * FROM tbl_admin WHERE email = ? AND password = ?");
-        $stmt_admin->execute([$email, $hashed_password]);
-        $admin = $stmt_admin->fetch();
+            // Send a POST request to Google's reCAPTCHA verification endpoint
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $data = [
+                'secret' => $secretKey,
+                'response' => $captchaResponse
+            ];
 
-        if($admin) {
-            // Redirect the admin to the admin dashboard
-            $this->set_userdata($admin);
-            header('Location: admin_dashboard.php');
-            exit;
-        }
+            $options = [
+                'http' => [
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data)
+                ]
+            ];
 
-        // Check if the user is a regular user
+            $context = stream_context_create($options);
+            $response = file_get_contents($url, false, $context);
+
+            if ($response !== false) {
+                $responseData = json_decode($response, true);
+
+                // Check if reCAPTCHA verification was successful
+                if ($responseData && $responseData['success']) {
+                    // reCAPTCHA verification passed, continue with login
+                    $connection = $this->openConn();
+
+                    // Hash the entered password for comparison with the stored hashed password
+                    $hashed_password = md5($password);
+
+                    // Check if the user is an administrator
+                    $stmt_admin = $connection->prepare("SELECT * FROM tbl_admin WHERE email = ? AND password = ?");
+                    $stmt_admin->execute([$email, $hashed_password]);
+                    $admin = $stmt_admin->fetch();
+
+                    if($admin) {
+                        // Redirect the admin to the admin dashboard
+                        $this->set_userdata($admin);
+                        header('Location: admin_dashboard.php');
+                        exit;
+                    }
+
+                    // Check if the user is a regular user
         $stmt_user = $connection->prepare("SELECT * FROM tbl_user WHERE email = ? AND password = ?");
         $stmt_user->execute([$email, $hashed_password]);
         $user = $stmt_user->fetch();
@@ -119,11 +149,25 @@ public function login() {
                 exit;
             }
         }
-        $message = "Invalid Email or Password";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+                    $message = "Invalid Email or Password";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                } else {
+                    // reCAPTCHA verification failed, show an error message
+                    $message = "reCAPTCHA verification failed. Please try again.";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                }
+            } else {
+                // Unable to contact Google's reCAPTCHA verification endpoint
+                $message = "Unable to verify reCAPTCHA. Please try again later.";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            }
+        } else {
+            // reCAPTCHA response not found, show an error message
+            $message = "reCAPTCHA response not found. Please complete the reCAPTCHA challenge.";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
     }
 }
-
 
 
 
@@ -1471,10 +1515,10 @@ public function create_travelpermit() {
 
     public function delete_certofindigency(){
         $id_indigency = $_POST['id_indigency'];
-        
-        if(isset($_POST['delete_certofindigency'])) {
+
+        if(isset($_POST['delete_certofindegency'])) {
             $connection = $this->openConn();
-            $stmt = $connection->prepare("DELETE FROM tbl_indigency where id_indigency = ?");
+            $stmt = $connection->prepare("DELETE FROM tbl_indigince where id_indigency = ?");
             $stmt->execute([$id_indigency]);
 
             header("Refresh:0");
