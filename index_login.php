@@ -16,8 +16,7 @@
         /* Additional styles for responsiveness */
         @media (max-width: 768px) {
             .logo-container {
-                text-align: center;
-                margin-bottom: 20px;
+                display: none; /* Hide the logo container */
             }
             .form-container {
                 max-width: 100%;
