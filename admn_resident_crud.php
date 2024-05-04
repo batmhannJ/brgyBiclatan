@@ -1,4 +1,4 @@
-    <?php
+<?php
         ini_set('display_errors',0);
         error_reporting(E_ALL ^ E_WARNING);
         include('classes/staff.class.php');
@@ -127,11 +127,25 @@
                                 <?php foreach($view as $view) {?>
                                     <tr>
                                         <td>    
-                                            <form action="" method="post">
-                                                <a href="update_resident_form.php?id_user=<?= $view['id_user'];?>" style="width:70px; font-size: 14px; border-radius:5px; margin-bottom: 2px;" class="btn btn-success"> Update </a>
+                                            <form action="" onsubmit="return confirmAction();" method="post">
+                                                <a href="update_resident_form.php?id_resident=<?= $view['id_resident'];?>" style="width:70px; font-size: 14px; border-radius:5px; margin-bottom: 2px;" class="btn btn-success"> Update </a>
                                                 <input type="hidden" name="id_resident" value="<?= $view['id_resident'];?>">
                                                 <button class="btn btn-danger" type="submit" name="delete_resident"style="width: 70px; font-size: 14px; border-radius:5px;"> Delete </button>
                                             </form>
+                                            <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                                         </td>
                                         <td> <?= $view['email'];?> </td>
                                         <td> <?= $view['lname'];?> </td>
@@ -242,14 +256,6 @@
         <!-- fontawesome icons -->
         <script src="https://kit.fontawesome.com/67a9b7069e.js" crossorigin="anonymous"></script>
         <script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"> </script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
     <?php 
         include('dashboard_sidebar_end.php');

@@ -1,5 +1,5 @@
 <?php
-    ini_set('display_errors', 1);
+    ini_set('display_errors', 0);
     error_reporting(E_ALL ^ E_WARNING);
     require 'classes/info.class.php';
     $userdetails = $bmis->get_userdata();
@@ -125,11 +125,25 @@
                                 <img src="<?= $view['image']; ?>" alt="Image" style="width: 180px; height: 100px;">
                             </td>
                             <td>
-                                <form action="" method="post">
+                                <form action="" onsubmit="return confirmAction();" method="post">
                                     <a href="update_activity_form.php?id_activity=<?= $view['id_activity']; ?>" class="btn btn-success" style="width: 100px; font-size: 15px; border-radius:5px; margin-bottom: 2px;"> Update </a>
                                     <input type="hidden" name="id_activity" value="<?= $view['id_activity']; ?>">
                                     <button class="btn btn-danger" type="submit" name="delete_activity" style="width: 100px; font-size: 15px; border-radius:5px;"> Delete </button>
                                 </form>
+                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                             </td>
                         </tr>
                     <?php endforeach; ?>

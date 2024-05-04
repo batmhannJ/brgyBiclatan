@@ -147,11 +147,25 @@
                                 <img src="<?= $view['image_service']; ?>" alt="Service Image" style="width: 180px; height: 100px;">
                             </td>
                             <td>
-                                <form action="" method="post">
+                                <form action="" onsubmit="return confirmAction();" method="post">
                                     <a href="update_services_form.php?id_services=<?= $view['id_services']; ?>" class="btn btn-success" style="width: 100px; font-size: 15px; border-radius:5px; margin-bottom: 2px;"> Update </a>
                                     <input type="hidden" name="id_services" value="<?= $view['id_services']; ?>">
                                     <button class="btn btn-danger" type="submit" name="delete_services" style="width: 100px; font-size: 15px; border-radius:5px;"> Delete </button>
                                 </form>
+                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                             </td>
                         </tr>
                     <?php endforeach; ?>

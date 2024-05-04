@@ -33,11 +33,25 @@
 			?>
 			<tr>
             <td>    
-                <form action="" method="post">
+                <form action="" onsubmit="return confirmAction();" method="post">
                     <a class="btn btn-success" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
                     <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
                     <button class="btn btn-danger" style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_blotter"> Delete </button>
                 </form>
+                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                 </td>
                 <td> <?= $view['id_resident'];?> </td> 
                 <td> <?= $view['lname'];?> </td>
@@ -92,11 +106,25 @@
                     <?php foreach($view as $view) {?>
 			<tr>
             <td>    
-                        <form action="" method="post">
+                        <form action="" onsubmit="return confirmAction();" method="post">
                         <a class="btn btn-success" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="update_blotter_form.php?id_blotter=<?= $view['id_blotter'];?>">Update</a> 
                             <input type="hidden" name="id_blotter" value="<?= $view['id_blotter'];?>">
                             <button class="btn btn-danger" style="width: 80px; font-size: 15px; border-radius:5px;" type="submit" name="delete_blotter"> Delete </button>
                         </form>
+                        <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                         </td>
 
                         <td> <?= $view['id_blotter'];?> </td> 

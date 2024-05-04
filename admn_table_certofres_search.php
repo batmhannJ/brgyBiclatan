@@ -33,11 +33,26 @@
         ?>
             <tr>
                 <td>    
-                    <form action="" method="post">
+                    <form action="" onsubmit="return confirmAction();"  method="post">
                         <a class="btn btn-success" target="blank" style="width: 80px; font-size: 14px; border-radius:5px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
                         <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
                         <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 14px; border-radius:5px;" name="delete_certofres"> Delete </button>
                     </form>
+                    <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
+
                 </td>
                 <td> <?= $view['id_resident'];?> </td> 
                 <td> <?= $view['lname'];?> </td>
@@ -82,10 +97,24 @@
                 <?php foreach($view as $view) {?>
                     <tr>
                         <td>    
-                            <form action="" method="post">
+                            <form action=""  onsubmit="return confirmAction();" method="post">
                                 <a class="btn btn-success" target="blank" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" href="rescert_form.php?id_rescert=<?= $view['id_rescert'];?>">Generate</a> 
                                 <input type="hidden" name="id_rescert" value="<?= $view['id_rescert'];?>">
                                 <button class="btn btn-danger" type="submit" style="width: 80px; font-size: 15px; border-radius:5px;" name="delete_certofres"> Delete </button>
+                                <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                             </form>
                         </td>
                         <td> <?= $view['id_resident'];?> </td> 

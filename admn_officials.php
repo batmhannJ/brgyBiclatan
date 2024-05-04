@@ -175,11 +175,25 @@
                                     </form>
                                 </td>-->
                                 <td>    
-                                    <form action="" method="post">
+                                    <form action="" onsubmit="return confirmAction();" method="post">
                                         <a href="update_official_form.php?id_official=<?= $view['id_official'];?>" style="width: 80px; font-size: 15px; border-radius:5px; margin-bottom: 2px;" class="btn btn-success"> Update </a>
-                                        <input type="hidden" name="id_user" value="<?= $view['id_user'];?>">
+                                        <input type="hidden" name="id_official" value="<?= $view['id_official'];?>">
                                         <button class="btn btn-danger" type="submit" name="delete_official"style="width: 80px; font-size: 15px; border-radius:5px; "> Delete </button>
                                     </form>
+                                    <script>
+                                                    function confirmAction() {
+                                                        // Display a confirmation dialog
+                                                        var confirmation = confirm("Are you sure you want to proceed?");
+
+                                                        // If the user confirms, return true to submit the form
+                                                        if (confirmation) {
+                                                            return true;
+                                                        } else {
+                                                            // If the user cancels, return false to prevent form submission
+                                                            return false;
+                                                        }
+                                                    }
+                                                </script>
                                 </td>
                             </tr>
                         <?php }?>
