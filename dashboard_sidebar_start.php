@@ -42,6 +42,10 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
+                <img src="logojpg.jpg" alt="Logo" style="height: 40px; width: 40px; margin-right: 10px; height: 40px;
+    width: 40px;
+    margin-right: 10px; /* space between logo and system name */
+    border-radius: 50%; ">
                 <div class="sidebar-brand-text">Administrator Dashboard </div>
             </a>
 
@@ -220,7 +224,7 @@
 
                         <!-- Nav Item - User Information -->
                             <div class="dropdown ml-auto">
-                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?>, <?= $userdetails['firstname'];?>
+                <button title="Your Account" class="btn btn-primary dropdown-toggle" style="margin-right: 2px;" type="button" data-toggle="dropdown"><?= $userdetails['surname'];?> <?= $userdetails['firstname'];?>
                     <span class="caret" style="margin-left: 2px;"></span>
                 </button>
                 <ul class="dropdown-menu" style="width: 175px;" >
