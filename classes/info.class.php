@@ -246,7 +246,6 @@ public function update_brgy_info() {
     public function delete_activity() {
         $id_activity = $_POST['id_activity'];
         if(isset($_POST['delete_activity'])) {
-            var_dump($id_activity); // Debug statement
             
             $connection = $this->openConn();
             $stmt = $connection->prepare("DELETE FROM tbl_activities WHERE id_activity = ?");
