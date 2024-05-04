@@ -326,7 +326,7 @@
 
                 try {
                     // Establish database connection
-                    $conn = new PDO('mysql:host=localhost;dbname=bmis', 'root', '');
+                    $conn = new PDO('mysql:host=localhost;dbname=u792431185_bmis', 'u792431185_biclatan', 'brgyBiclatan24');
 
                     // Set PDO error mode to exception
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
