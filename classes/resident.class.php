@@ -208,7 +208,7 @@ public function create_resident() {
 
     public function count_resident() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE request_status = 'approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
         return $rescount;
@@ -246,7 +246,7 @@ public function create_resident() {
     public function count_female_resident() {
         $connection = $this->openConn();
 
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'female'");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where sex = 'female' and request_status = 'approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -482,7 +482,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_voters() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'Yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident where `voter` = 'Yes' and request_status = 'approved'");
         $stmt->execute();
         $rescount = $stmt->fetchColumn();
 
@@ -633,7 +633,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_pwd() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE pwd = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE pwd = 'yes' and request_status = 'approved'");
         $stmt->execute();
         $pwdcount = $stmt->fetchColumn();
         return $pwdcount;
@@ -641,7 +641,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_single_parent() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE single_parent = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE single_parent = 'yes' and request_status = 'approved'");
         $stmt->execute();
         $spcount = $stmt->fetchColumn();
         return $spcount;
@@ -649,7 +649,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_fourps() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE four_ps = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE four_ps = 'yes' and request_status = 'approved' ");
         $stmt->execute();
         $fourpscount = $stmt->fetchColumn();
         return $fourpscount;
@@ -657,7 +657,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_indigent() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE indigent = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE indigent = 'yes' and request_status = 'approved'");
         $stmt->execute();
         $indigentcount = $stmt->fetchColumn();
         return $indigentcount;
@@ -665,7 +665,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_malnourished() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE malnourished = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE malnourished = 'yes' and request_status = 'approved'");
         $stmt->execute();
         $malcount = $stmt->fetchColumn();
         return $malcount;
@@ -673,7 +673,7 @@ if($hashed_old_password !== $result['password']) {
 
     public function count_vaccinated() {
         $connection = $this->openConn();
-        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE vaccinated = 'yes' ");
+        $stmt = $connection->prepare("SELECT COUNT(*) from tbl_resident WHERE vaccinated = 'yes' and request_status = 'approved' ");
         $stmt->execute();
         $vacxcount = $stmt->fetchColumn();
         return $vacxcount;
