@@ -15,7 +15,7 @@
     <style>
         /* Additional styles for responsiveness */
         @media (max-width: 768px) {
-            .logo-container {
+            .logo {
                 display: none; /* Hide the logo container */
             }
             .form-container {
