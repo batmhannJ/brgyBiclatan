@@ -15,8 +15,9 @@
     <style>
         /* Additional styles for responsiveness */
         @media (max-width: 768px) {
-            .logo {
-                display: none; /* Hide the logo container */
+            .logo-container {
+                text-align: center;
+                margin-bottom: 20px;
             }
             .form-container {
                 max-width: 100%;
@@ -31,8 +32,7 @@
 <section class="main-section">
     <div class="container">
         <div class="row">
-            <!-- Adjusted the order of columns for responsiveness -->
-            <div class="col-md-6 order-md-last logo-container">
+            <div class="col-md-6 logo-container">
                 <img src="assets/goloo.png" alt="Logo" class="logo">
             </div>
             <div class="col-md-6 form-container">
