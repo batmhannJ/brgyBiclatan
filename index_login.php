@@ -31,7 +31,8 @@
 <section class="main-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 logo-container">
+            <!-- Adjusted the order of columns for responsiveness -->
+            <div class="col-md-6 order-md-last logo-container">
                 <img src="assets/goloo.png" alt="Logo" class="logo">
             </div>
             <div class="col-md-6 form-container">
